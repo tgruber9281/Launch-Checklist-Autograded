@@ -3,14 +3,13 @@
 window.addEventListener("load", function () {
   let form = document.querySelector("form");
 
-  form.addEventListener("submit", () => {
+  form.addEventListener("submit", (event) => {
     let pilot = this.document.getElementsByName("pilotName")[0].value;
     let copilot = this.document.getElementsByName("copilotName")[0].value;
     let fuelLevel = this.document.getElementsByName("fuelLevel")[0].value;
     let cargoLevel = this.document.getElementsByName("cargoMass")[0].value;
 
-    console.log(pilot)
-    formSubmission("document", "list", pilot, copilot, fuelLevel, cargoLevel);
+    formSubmission("document", "list", pilot, copilot, fuelLevel, cargoLevel, event);
   });
 
   let listedPlanets;

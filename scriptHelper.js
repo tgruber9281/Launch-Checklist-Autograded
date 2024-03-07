@@ -37,12 +37,28 @@ function validateInput(testInput) {
   }
 }
 
-function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-  //preventDefault if invalid
-  console.log(validateInput(pilot))
-  if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
-    alert("All fields are required!")
-    event.preventDefault()
+function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel, event) {
+  //preventDefault and alert if invalid
+  if (
+    validateInput(pilot) === "Empty" ||
+    validateInput(copilot) === "Empty" ||
+    validateInput(fuelLevel) === "Empty" ||
+    validateInput(cargoLevel) === "Empty"
+  ) {
+    alert("All fields are required!");
+    event.preventDefault();
+  } else if (validateInput(pilot) === "Is a Number") {
+    alert("Please enter Pilot's name.");
+    event.preventDefault();
+  } else if (validateInput(copilot) === "Is a Number") {
+    alert("Please enter Copilot's name.");
+    event.preventDefault();
+  } else if (validateInput(fuelLevel) === "Not a Number") {
+    alert("Please enter a number for the current Fuel Level");
+    event.preventDefault();
+  } else if (validateInput(cargoLevel) === "Not a Number") {
+    alert("Please enter a number for the current Cargo Mass");
+    event.preventDefault();
   }
 }
 
