@@ -38,7 +38,6 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-  list.style.visibility = "visible";
   let formReady = true;
   if (
     validateInput(pilot) === "Empty" ||
@@ -47,20 +46,22 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     validateInput(cargoLevel) === "Empty"
   ) {
     alert("All fields are required!");
-    formReady = false;
+    return false;
   } else if (validateInput(pilot) === "Is a Number") {
     alert("Please enter Pilot's name.");
-    formReady = false;
+    return false;
   } else if (validateInput(copilot) === "Is a Number") {
     alert("Please enter Copilot's name.");
-    formReady = false;
+    return false;
   } else if (validateInput(fuelLevel) === "Not a Number") {
     alert("Please enter a number for the current Fuel Level");
-    formReady = false;
+    return false;
   } else if (validateInput(cargoLevel) === "Not a Number") {
     alert("Please enter a number for the current Cargo Mass");
-    formReady = false;
+    return false;
   }
+
+  list.style.visibility = "visible";
 
   //declare status variables
   let pilotStatus = document.getElementById("pilotStatus");
