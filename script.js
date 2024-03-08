@@ -33,9 +33,16 @@ window.addEventListener("load", function () {
   listedPlanetsResponse.then(function (result) {
     listedPlanets = result;
     console.log(listedPlanets);
-    let planet = pickPlanet(listedPlanets)
-    console.log(planet)
-    addDestinationInfo(document, planet.name, planet.diameter, planet.star, planet.distance, planet.moons, planet.image);
+    let planet = pickPlanet(listedPlanets);
+    addDestinationInfo(
+      document,
+      planet.name,
+      planet.diameter,
+      planet.star,
+      planet.distance,
+      planet.moons,
+      planet.image
+    );
   });
   // .then(function () {
   //   console.log(listedPlanets);

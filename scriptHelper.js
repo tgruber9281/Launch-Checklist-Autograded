@@ -11,7 +11,7 @@ function addDestinationInfo(
   moons,
   imageUrl
 ) {
-    let missionDestination = document.getElementById('missionTarget')
+  let missionDestination = document.getElementById("missionTarget");
   missionDestination.innerHTML = `
                  <h2>Mission Destination</h2>
                  <ol>
@@ -22,7 +22,7 @@ function addDestinationInfo(
                      <li>Number of Moons: ${moons}</li>
                  </ol>
                  <img src="${imageUrl}">
-    `
+    `;
 }
 
 function validateInput(testInput) {
@@ -94,7 +94,6 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
       formReady = false;
     }
   }
-  console.log("last line of formSubmission");
   return formReady;
 }
 
@@ -106,7 +105,7 @@ async function myFetch() {
 }
 
 function pickPlanet(planets) {
-    return planets[(Math.floor(Math.random()*7))]
+  return planets[Math.floor(Math.random() * 7)];
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
